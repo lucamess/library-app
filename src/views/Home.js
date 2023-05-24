@@ -71,7 +71,7 @@ const Home = () => {
 
 			<Space h="1rem" />
 			{resBooks.length == 0 ? <Nothing>No books registered, add some!</Nothing> :
-				books.map(book =>
+				resBooks.map(book =>
 				<BookCard key={book.bookId} book={book}
 					onClick={handleClick(book)} />)
 			}

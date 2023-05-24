@@ -10,7 +10,8 @@ const BookCard = ({ book, onClick }) => {
 			<Row>
 				<Title>{book.title}</Title>
 				<FlexGrow />
-				{taken && <Text>{dateToHuman(book.issuedDate)} ({daysFromToday(book.issuedDate)} days)</Text>}
+				{taken &&
+				<Text>{dateToHuman(book.issuedDate)} ({daysFromToday(book.issuedDate)} days)</Text>}
 			</Row>
 			<Subtitle>{book.audience}</Subtitle>
 
