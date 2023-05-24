@@ -21,7 +21,7 @@ const Home = () => {
 		navigate(routePathList.viewBook, { state: book })
 	}
 
-	console.log("books", books)
+	console.log("books", books, isIssued, isLate)
 
 	useEffect(() => {
 		const storedBooks = JSON.parse(localStorage.getItem("books") || 0) || []
@@ -34,7 +34,11 @@ const Home = () => {
 			keys: ["title", "author", "issuedName", "issuedClass"]
 		})
 
-		let resBooksTemp = fuse.search(searchText)
+		let resBooksTemp
+		if(searchText.replace(" ", "") == "")
+			resBooksTemp = books
+		else
+			resBooksTemp = fuse.search(searchText)
 
 		if(isIssued) {
 			resBooksTemp = resBooksTemp.filter(book => Boolean(book.issuedName))
@@ -44,20 +48,18 @@ const Home = () => {
 			resBooksTemp = resBooksTemp.filter(book => daysFromToday(book.issueDate) > 4)
 		}
 
-		if(searchText.replace(" ", "") == "")
-			setResBooks(books)
-		else
-			setResBooks(resBooksTemp)
+		setResBooks(resBooksTemp)
 
-	}, [ searchText, isIssued, isLate ])
+	}, [ searchText, isIssued, isLate, books ])
 
 	return (
 		<Container>
 			<h1>Search for books and students</h1>
 			<h4>(created by 12D students)</h4>
 			<Button size="small" style={{ alignSelf: "flex-end" }}
-				onClick={() => navigate(routePathList.addBook)}
-			>Add book</Button>
+				onClick={() => navigate(routePathList.addBook)}>
+				Add book
+			</Button>
 			<Space h="1rem" />
 			<Input value={searchText} onChange={e => setSearchText(e.target.value)}
 				placeholder="Search anything here" />

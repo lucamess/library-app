@@ -41,6 +41,7 @@ const ViewBook = () => {
 	const handleSave = () => {
 		setBooks(oldBooks => {
 			const newBooks = editBook(edBook) (oldBooks)
+			console.log("newbooks", newBooks)
 			localStorage.setItem("books", JSON.stringify(newBooks))
 			return newBooks
 		})
@@ -61,6 +62,10 @@ const ViewBook = () => {
 			<Space h="1rem" />
 			<Checkbox label="Taken" initialValue={taken} onChange={handleCheck} />
 
+			<Button onClick={handleSave}
+				size="small" style={{ alignSelf: "flex-end", width: "min-content" }}>
+				Save
+			</Button>
 			{taken == false ? null :
 			<Card>
 				<Input value={edBook.issuedName} onChange={handleInput("issuedName")}
@@ -72,10 +77,6 @@ const ViewBook = () => {
 				<InputMultiple value={edBook.issuedNote} onChange={handleInput("issuedNote")}
 					placeholder="Note" />
 
-				<Button onClick={handleSave}
-					size="small" style={{ alignSelf: "flex-end", width: "min-content" }}>
-					Save
-				</Button>
 			</Card>}
 		</Container>
 	)
