@@ -32,6 +32,7 @@ const Container = styled.div`
 	border: 1px solid #ccc;
 	border-radius: 8px;
 	cursor: pointer;
+	margin-top: 0.5rem;
 `
 
 const Title = styled.div`

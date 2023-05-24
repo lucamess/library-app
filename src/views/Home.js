@@ -38,7 +38,7 @@ const Home = () => {
 		if(searchText.replace(" ", "") == "")
 			resBooksTemp = books
 		else
-			resBooksTemp = fuse.search(searchText)
+			resBooksTemp = fuse.search(searchText).map(({ item }) => item)
 
 		if(isIssued) {
 			resBooksTemp = resBooksTemp.filter(book => Boolean(book.issuedName))
