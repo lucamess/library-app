@@ -1,0 +1,39 @@
+{
+  "name": "library-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "parcel src/index.html"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.4.0",
+    "fuse.js": "^6.6.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-hot-toast": "^2.4.1",
+    "react-router-dom": "^6.11.2",
+    "recoil": "^0.7.7",
+    "src": "^1.1.2",
+    "styled-components": "^6.0.0-rc.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.41.0",
+    "eslint-plugin-react": "^7.32.2"
+  },
+  "alias": {
+    "src": "./src/",
+    "comp": "./src/components/"
+  },
+  "browserslist": [
+    "last 3 and_chr versions",
+    "last 3 chrome versions",
+    "last 3 opera versions",
+    "last 3 ios_saf versions",
+    "last 3 safari versions"
+  ]
+}
